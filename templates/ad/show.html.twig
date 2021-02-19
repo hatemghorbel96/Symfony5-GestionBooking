@@ -55,16 +55,17 @@
         <div class="col">
             <div class="row">
                 <div class="col-4">
-                    <img src="http://placehold.it/64x64" alt="avatar de joseph">
-                </div>
+                    <a href="{{ path('user_show',{'slug': ad.author.slug}) }}">
+                    <img src="{{ ad.author.picture }}" class="avatar-medium" alt="avatar de {{ ad.author.fullName }}">
+                    </a> </div>
                 <div class="col">
-                    <h3>Joseph dupont</h3>
-                    <span class="badge badge-primary">3 annonces</span>
+                    <a href="{{ path('user_show',{'slug': ad.author.slug}) }}">
+                    <h3>{{ ad.author.fullName }}</h3>
+                    </a>
+                    <span class="badge badge-primary">{{ ad.author.ads | length }} annonces</span>
                 </div>
             </div>
-            <p>azeazezae</p>
-            <p>azeazeazeaz</p>
-            <p>eazezaea</p>
+            {{ad.author.description | raw  }}
         </div>
     </div>
 </div>
