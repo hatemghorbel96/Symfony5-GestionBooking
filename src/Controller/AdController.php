@@ -119,6 +119,22 @@ $ad->setAuthor($this->getUser());
         'ad'=>$ad
      ]);
     }
+/**
+ * Undocumented function
+ *@Route("/ads/{slug}/delete", name="ads_delete")
+ * 
+ * @param Ad $ad
+ * @return Response
+ */
+    public function delete (Ad $ad,EntityManagerInterface $manager){
+$manager->remove($ad);
+$manager->flush();
+$this->addFlash(
+    'success',
+    "l'annonce <strong>{$ad->getTitre() }</strong> a bien ete supprimer"
+);
+return $this->redirectToRoute("ads_index");
+    }
 
 
 }

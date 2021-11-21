@@ -11,6 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4235546d-66b4-4794-b5c9-1ea099e202d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,6 +136,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1ocUeIe0aEBciMlCqXsZn06KVxB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -142,7 +144,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GestEv" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -171,7 +173,9 @@
       <workItem from="1613639268912" duration="8873000" />
       <workItem from="1613648351383" duration="10021000" />
       <workItem from="1613680634988" duration="8477000" />
-      <workItem from="1613726364191" duration="16984000" />
+      <workItem from="1613726364191" duration="17319000" />
+      <workItem from="1614358245850" duration="1260000" />
+      <workItem from="1614535408262" duration="809000" />
     </task>
     <servers />
   </component>
@@ -199,6 +203,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="370" y="246" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1613688171665" />
+    <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1614536230749">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="420" y="246" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1614536230749" />
     <state x="449" y="214" key="NewPhpClassDialog" timestamp="1613588287105">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

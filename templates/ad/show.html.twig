@@ -15,7 +15,16 @@
                     {{ ad.rooms }} chambres </strong>  pour <strong>{{ ad.price }}&euro;</strong> par nuit
 
             </p>
-            <a href="#" class="btn btn-primary">Reserver</a>
+            {% if app.user %}
+            <a href="{{path('booking_create',{'slug': ad.slug})}}" class="btn btn-primary">Reserver</a>
+            {% else %}
+             <a href="{{path('booking_create',{'slug': ad.slug})}} " class="btn btn-primary disabled">Connectez pour reservé</a>
+            {% endif %}
+            {% if app.user and app.user == ad.author %}
+           <a href="{{path('ads_edit',{'slug': ad.slug})}}" class="btn btn-secondary">Modifier l'annonce</a>
+
+           <a href="{{path('ads_delete',{'slug':ad.slug})}}" class="btn btn-danger" onclick="return confirm(`etes vous sur de vouloir supprimer l'annonce {{ad.titre}}`)">Supprimer l'annonce</a>
+           {% endif %}
         </div>
 
     </div>
@@ -51,6 +60,71 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+<br>
+         {% if ad.comments | length > 0 %}    
+         <h2 class="mb-3">Commentaires de nos voyageurs :</h2>     
+
+         
+              <!-- First row -->
+                <div class="text-center my-5 alert alert-info">
+
+                <h6 class="font-weight-bold ">Note global donnee par nos voyageurs</h6>
+                         
+                           <div class="col">
+                              {% for i in 1..5 %}
+                                  {% if i <= ad.getAvgRating %} 
+                                  <i class="fas fa-star"></i>
+                                  {% else %}
+                                  <i class="far fa-star"></i>
+                                  {% endif %}
+                                  {% endfor %}                         
+                         <br>
+                          
+                           <small>(Calculée sur {{ad.comments | length}} avis !)</small>
+                            </div>
+              </div>
+
+
+              {% for comment in ad.comments |sort((b, a) => a.createdAt <=> b.createdAt) %} 
+                    <div class="bg-light rounded mb-3 py-3 px-3">   
+                    <strong>    {{comment.user.firstname}} {{comment.user.lastname}}  </strong> a dit :
+                            <blockquote>
+                                   {{comment.content}}
+                                </blockquote>
+                                <strong>Note donnée  : </strong>
+                                  <span class="rating">
+                                  {% for i in 1..5 %}
+                                  {% if i <= comment.rating %} 
+                                  <i class="fas fa-star"></i>
+                                  {% else %}
+                                  <i class="far fa-star"></i>
+                                  {% endif %}
+                                  {% endfor %}
+                                </span>
+                                </div>{% endfor %}
+                                 {% else %}
+                                        <h2>Cette annonce n'a pas encore recu de commentaires ...</h2>
+                                        {% endif %}
+
+
+                        {# <i class="far fa-clock-o"></i> {{comment.createdAt ? comment.createdAt|date('F j, Y, g:i a')}}</li>
+                                <span class="rating">
+                                  {% for i in 1..5 %}
+                                  {% if i <= comment.rating %} 
+                                  <i class="fas fa-star"></i>
+                                  {% else %}
+                                  <i class="far fa-star"></i>
+                                  {% endif %}
+                                  {% endfor %}
+                                </span>
+                 
+                                            {% endfor %}
+
+                                            {% else %}
+                                            <h2>Cette annonce n'a pas encore recu de commentaires ...</h2>
+                                            {% endif %} #}
+
+
         </div>
         <div class="col">
             <div class="row">

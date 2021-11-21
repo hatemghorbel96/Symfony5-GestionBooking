@@ -2,8 +2,21 @@
 <div class="col-md-4">
     <div class="card bg-light mb-3">
         <div class="card-header text-center">
-            {{ ad.rooms }} chambres, <strong>{{ ad.price }}&euro; / nuit</strong><br>
+            {{ ad.rooms }} chambres, <strong>{{ ad.price }} DT / nuit</strong><br>
+            {% if ad.comments | length > 0 %}
+             {% for i in 1..5 %}
+                                     <span class="rating">
+                                  {% if i <= ad.getAvgRating %} 
+                                  <i class="fas fa-star"></i>
+                                  {% else %}
+                                  <i class="far fa-star"></i>
+                                  {% endif %}
+                                  {% endfor %}
+                                  </span>
+            {% else %}
             <small>Pas encore noté</small>
+            {% endif %}
+           
         </div>
         <a href="{{ url }}">
             <img src="{{ ad.coverImage }}" alt="Image de l'appartement" style="height: 200px; width: 100%;display: block">
@@ -19,6 +32,9 @@
                 {{ ad.introduction }}
             </p>
             <a href="{{ url }}" class="btn btn-secondary">En savoir plus</a>
+              {% if app.user and app.user == ad.author %}
+           <a href="{{path('ads_edit',{'slug': ad.slug})}}" class="btn btn-secondary">Modifier l'annonce</a>
+           {% endif %}
         </div>
     </div>
 </div>
