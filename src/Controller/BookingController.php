@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class BookingController extends AbstractController
 {
     #[Route('/ads/{slug}/book', name: 'booking_create')]
-    public function index(Ad $ad,Request $request,EntityManagerInterface $manager): Response
+    public function create(Ad $ad,Request $request,EntityManagerInterface $manager): Response
     {
         $booking =new Booking();
         $form= $this->createForm(BookingType::class,$booking);

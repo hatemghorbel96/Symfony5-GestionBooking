@@ -3,6 +3,7 @@
 {% block title %}Edition d'une annonce {% endblock %}
 
 {% block body %}
+<section style="padding-top: 40px;">
     <div class="container">
         <h1>modifier l'annonce {{ ad.titre }}</h1>
 
@@ -15,5 +16,5 @@
         <button type="submit" class="btn btn-primary">Modifier l annonce</button>
 
         {{ form_end(form) }}
-    </div>
+    </div></section>
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}Modifier Utilisateur{% endblock %}
+{% block body %}
+
+ <div class="container">
+        <h1>Modification Role !</h1>
+<div class="col-md-12">
+{{ form_start(formUser) }}
+{{ form_widget(formUser) }}
+<button type="submit" class="btn btn-success">Modifier</button>
+{{ form_end(formUser) }}
+</div></div>
+{% endblock %}

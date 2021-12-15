@@ -1,0 +1,65 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administrateur des annonce!{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+        <h1 class="my-5">Gestion des annonces</h1>
+         <div class="row">
+                    <div class="col-lg-12 my-3">
+                        <div class="card filterable" style="overflow:auto;">
+                            <div class="card-header bg-success text-white">
+                                <span>
+                                     <i class="livicon" data-name="responsive" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+                                    Re-order Columns
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive-lg table-responsive-sm table-responsive-md">
+                                    <table class="table table-striped table-bordered" id="table2"
+                                       width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Titre</th>
+                                            <th>Auteur</th>
+                                              <th class="text-center">Réservations</th>
+                                                <th class="text-center">Note</th>
+                                                   <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for ad in ads %}
+                                        <tr>
+                                          
+                                            <td>{{ ad.id }}</td>
+                                            <td>{{ ad.titre }}</td>
+                                           
+                                            <td>
+                                               <img src="{{ad.author.picture}}" alt="avatar de {{ad.author.fullName}}" class="avatar avatar-micro mr-2" style="max-width:30px;max-height:30px;">{{ ad.author.fullName }}</td>
+                                            <td class="text-center">
+                                                        <span class="badge badge-primary rounded">
+                                                                {{ ad.bookings | length }}
+                                                        </span>
+                                                    </td>
+                                                     <td class="text-center">
+                        <span class="badge badge-primary rounded">
+                        {{ ad.getAvgRating }}
+                         </span>
+                  </td>
+                 <td>  <a href="{{path('admin_edit_ads',{'id':ad.id})}}" class="btn btn-dark"><i class="fas fa-pen"></i></a> 
+                       <a href="{{path('admin_supp_ads',{'id':ad.id})}}" class="btn btn-danger"onclick="return confirm('Etes vous sûr de supprimer cet annonce?');"><i class="fas fa-trash"></i></a>
+
+                    </td>
+                                        </tr>
+                                             {% endfor %}
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- row-->
+</div>
+{% endblock %}

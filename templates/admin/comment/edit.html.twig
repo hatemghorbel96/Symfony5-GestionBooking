@@ -1,0 +1,28 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administrateur des annonce!{% endblock %}
+
+{% block body %}
+<div class="container">
+       <h1 class="my-5">Modification du commentaire {{comment.id}}</h1>   
+      
+       <div class="alert alert-info">
+       <strong>Annonce liée :</strong> {{comment.ad.titre}}<br>
+        <strong>Annonce liée :</strong> {{comment.user.fullname}}<br>
+         <strong>Annonce liée :</strong> {{comment.createdAt | date('d/m/Y H:i') }}<br>
+          <strong>Annonce liée :</strong> {{comment.rating}}<br>
+       </div>
+
+       {{form_start(form) }}
+
+       {{form_widget(form) }}
+       <button type="submit" class="btn btn-primary">
+       
+        <i class="fa fa-check">
+        Enregistrer les modifications
+        </i>
+       </button>
+       {{form_end(form)}}
+
+</div>
+{% endblock %}

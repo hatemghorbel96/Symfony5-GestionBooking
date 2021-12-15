@@ -4,7 +4,7 @@
 
 {% form_theme form _self %}
 {% block body %}
-
+<section style="padding-top: 50px;">
 <div class="container">
     <h1>cree une nouvelle annonce</h1>
 
@@ -51,6 +51,7 @@
     </div>
 
 </div>
+
 {% endblock %}
 
 {% block javascripts %}
@@ -64,5 +65,5 @@
         //j inject ce code au sein
         $('#ad_images').append(tmpl);
     });
-</script>
+</script></section>
 {% endblock %}

@@ -32,7 +32,7 @@ class Booking
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\GreaterThan("today",message="la date d'arrivée doit etre ultérieure à la date d'aujourd'hui")
+     * @Assert\GreaterThan("today",message="la date d'arrivée doit etre ultérieure à la date d'aujourd'hui" ,groups={"front"})
      */
     private $startDate;
 
@@ -60,6 +60,7 @@ class Booking
     /**
      * Undocumented function 
      *@ORM\PrePersist
+     * @ORM\PreUpdate
      * @return void
      */
     public function prePersist(){

@@ -1,0 +1,63 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administrateur des Reservations!{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+        <h1 class="my-5">Gestion des Reservations</h1>
+         <div class="row">
+                    <div class="col-lg-12 my-3">
+                        <div class="card filterable" style="overflow:auto;">
+                            <div class="card-header bg-success text-white">
+                                <span>
+                                     <i class="livicon" data-name="responsive" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+                                    Re-order Columns
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive-lg table-responsive-sm table-responsive-md">
+                                    <table class="table table-striped table-bordered" id="table2"
+                                       width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                 <th>Date</th>
+                  <th>Visiteur</th>
+                   <th>Annonce</th>
+                     <th>Durée</th>
+                       <th>Montant</th>
+                  
+                     <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for b in bookings %}
+                                        <tr>
+                                          
+                                           <td>{{ b.id }} </td>
+                <td>{{ b.createdAt| date('d/m/Y H:i') }}</td>
+               <td><img src="{{b.booker.picture}}" alt="avatar de {{b.booker.fullName}}" class="avatar avatar-micro mr-2" style="max-width:30px;max-height:30px;">{{ b.booker.fullName }}</td>
+                <td>{{ b.ad.titre }}</td>
+                 <td>{{ b.getDuration }}</td>
+                  <td>{{ b.montant }} DT</td>
+                
+                
+                
+                 <td>  <a href="{{path('admin_edit_booking',{'id':b.id})}}" class="btn btn-dark"><i class="fas fa-pen"></i></a> 
+                       <a href="#" class="btn btn-danger"onclick="return confirm('Etes vous sûr de supprimer ce comment?');"><i class="fas fa-trash"></i></a>
+
+           
+                <td>
+                                        </tr>
+                                             {% endfor %}
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+</div>
+{% endblock %}

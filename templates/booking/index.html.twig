@@ -5,6 +5,7 @@
 
 {% endblock stylesheets %}
 {% block body %}
+<section style="padding-top: 50px;">
 <div class="container">
 
             <h1>Réservez pour l'annonce : {{ad.titre}}</h1>
@@ -75,7 +76,7 @@
         $('#montant').text(montant.toLocaleString('fr-FR'));
       }
   }
-</script>
+</script></section>
 {% endblock %}
 
 

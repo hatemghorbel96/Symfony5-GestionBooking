@@ -5,9 +5,10 @@
     {{ ad.titre }}
 {% endblock %}
 {% block body %}
-    <div class="card-title" style="background-image: url({{ ad.coverImage }})">
+<section style="padding-top: 40px;">
+    <div class="card-title" style="background-image: url({{ ad.coverImage }}) ;height:100%;" >
 
-        <div class="container">
+        <div class="container-fluid" >
             <h1>{{ ad.titre }}</h1>
             <p>{{ ad.introduction }}</p>
             <p class="h2">
@@ -43,7 +44,7 @@
                 <div class="carousel-inner">
                     {% for image in ad.images %}
                     <div class="carousel-item {% if loop.first %}active{% endif %}">
-                        <img src="{{ image.url }}" class="d-block w-100" alt="First slide">
+                        <img src="{{ image.url }}" class="d-block w-100" alt="First slide" >
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{ ad.titre }}</h5>
                             <p>{{ image.caption }}</p>
@@ -142,5 +143,5 @@
             {{ad.author.description | raw  }}
         </div>
     </div>
-</div>
+</div></section>
 {%  endblock %}

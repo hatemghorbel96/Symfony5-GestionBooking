@@ -1,0 +1,82 @@
+
+
+<header class="header">
+    <a href="{{path('homepage')}}" class="logo">
+        <img src="{{ asset('img/logo.png') }}"style = "width: 60px;height: 50px;" alt="logo">HG-Summer
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <div class="navbar-left toggle">
+            <a class="nav-link" href="{{path('admin_dashboard')}}"> <i class="fas fa-chart-line"> Dashboard</i> </a>     
+            <a class="nav-link" href="{{path('admin_ads')}}"><i class="fas fa-hotel"> Annonces</i> </a>
+            <a class="nav-link" href="{{path('admin_booking')}}"><i class="fas fa-folder"> Reservations</i></a> 
+             <a class="nav-link" href="{{path('admin_comment')}}"><i class="fas fa-comments"> Commentaires</i></a> 
+              <a class="nav-link" href="{{path('admin_utilisateurs')}}"><i class="fas fa-users"> Utilisateurs</i></a>   
+              <a href="{{path('homepage')}}"  target="_blank" class="nav-link">
+            <i class="fas fa-eye"> Voir le site</i>
+            </a>     
+
+        </div>  
+        <div class="navbar-right toggle">
+            <ul class="nav navbar-nav  list-inline">
+               
+                            <li class=" nav-item dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                                    <img src="{{ app.user.picture }}" alt="avatar de
+                        {{app.user.fullName}}" height="35px" width="35px"
+                                 class="rounded-circle img-fluid float-left"/>
+
+                                                <div class="riot">
+                            <div>
+                                <p class="user_name_max"> {{ app.user.fullName }}</p>
+                                <span>
+                                        <i class="caret"></i>
+                                    </span>
+                            </div>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header bg-light-blue">
+                                                            <img src="{{ app.user.picture }}" alt="avatar de
+                        {{app.user.fullName}}" height="35px" width="35px"
+                                     class="rounded-circle img-fluid float-left"/>
+
+                                                        <p class="topprofiletext">{{ app.user.fullName }}</p>
+                        </li>
+                        <!-- Menu Body -->
+                       
+                        
+                       
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="float-left">
+                                <a href="http://demo.joshadmin.com/admin/1/lockscreen">
+                                    <i class="livicon" data-name="lock" data-size="16" data-c="#555555" data-hc="#555555" data-loop="true"></i>
+                                    Lock
+                                </a>
+                            </div>
+                            <div class="float-right">
+                                <a href="{{ path('account_logout') }}">
+                                    <i class="livicon" data-name="sign-out" data-s="18"></i>
+                                    Deconnexion
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    {% for label,messages in app.flashes %}
+    <div class="container">
+        <div class="alert alert-{{ label }}">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endfor %}
+</header>
