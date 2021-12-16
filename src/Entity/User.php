@@ -87,6 +87,11 @@ class User implements UserInterface
     */
     private $roles = [];
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $tel;
+
     public function getFullName(){
         return "{$this->firstname} {$this->lastName}";
     }
@@ -334,6 +339,18 @@ class User implements UserInterface
                       $comment->setUser(null);
                   }
               }
+
+              return $this;
+          }
+
+          public function getTel(): ?int
+          {
+              return $this->tel;
+          }
+
+          public function setTel(?int $tel): self
+          {
+              $this->tel = $tel;
 
               return $this;
           }

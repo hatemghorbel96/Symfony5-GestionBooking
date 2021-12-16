@@ -1,9 +1,47 @@
 {% set url=path('ads_show',{'slug':ad.slug}) %}
-<div class="col-md-4">
-    <div class="card bg-light mb-3">
-        <div class="card-header text-center">
-            {{ ad.rooms }} chambres, <strong>{{ ad.price }} DT / nuit</strong><br>
-            {% if ad.comments | length > 0 %}
+<link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/vendors/animate/animate.min.css" />
+ <div class="col-md-6 col-lg-4 ">
+
+            <!--Card-->
+            <div class="card bg-personnel mb-4 wow bounceInDown" data-wow-duration="3s" data-wow-delay="0.1s">
+
+              <!--Card image-->
+              <div class="view overlay">
+                <img class="card-img-top" src="{{ ad.coverImage }}" style="height: 200px; width: 100%;display: block"
+                  alt="Image de l'appartement">
+                <a href="{{ url }}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+              <!--Card image-->
+
+              <!--Card content-->
+              <div class="card-body">
+                <!--Title-->
+                <a>
+                  <h5 class="font-weight-bold text-uppercase">
+                    <strong> {{ad.titre}}</strong>
+                  </h5>
+                </a>
+                <a>
+                  <span class="badge badge-info py-2 px-2">{{ ad.price }} DT / nuit</span>
+                </a>
+
+                <!--Text-->
+                <p class="grey-text mt-2">{{ ad.introduction }}
+                  <!--Grid row-->
+                  <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-lg-5 ">
+                      <p class="dark-grey-text">
+                        <i class="fas fa-hotel dark-grey-text" aria-hidden="true"></i>  {{ ad.rooms }} chambres</p>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-7 col-md-12 ">
+                         {% if ad.comments | length > 0 %}
              {% for i in 1..5 %}
                                      <span class="rating">
                                   {% if i <= ad.getAvgRating %} 
@@ -16,25 +54,28 @@
             {% else %}
             <small>Pas encore noté</small>
             {% endif %}
-           
-        </div>
-        <a href="{{ url }}">
-            <img src="{{ ad.coverImage }}" alt="Image de l'appartement" style="height: 200px; width: 100%;display: block">
-        </a>
+                    </div>
+                    <!--Grid column-->
 
-        <div class="card-body">
-            <h4 class="card-title">
-                <a href="{{ url }}">
-                    {{ad.titre}}
-                </a>
-            </h4>
-            <p class="card-text">
-                {{ ad.introduction }}
-            </p>
-            <a href="{{ url }}" class="btn btn-secondary">En savoir plus</a>
-              {% if app.user and app.user == ad.author %}
-           <a href="{{path('ads_edit',{'slug': ad.slug})}}" class="btn btn-secondary">Modifier l'annonce</a>
-           {% endif %}
-        </div>
-    </div>
-</div>
+                  </div>
+                  <!--Grid row-->
+                </p>
+                <hr>
+                <!--Grid column-->
+                <div class="col-12 text-center">
+                  <a href="{{ url }}" class="btn btn-info btn-sm font-weight-bold btn-rounded">
+                    <strong>En savoir plus</strong>
+                  </a>    {% if app.user and app.user == ad.author %}
+                   <a href="{{path('ads_edit',{'slug': ad.slug})}}" class="btn btn-info btn-sm font-weight-bold btn-rounded">
+                    <strong>Modifier</strong>
+                  </a> {% endif %}
+                </div>
+                <!--Grid column-->
+
+              </div>
+              <!--Card content-->
+
+            </div>
+            <!--Card-->
+
+          </div>

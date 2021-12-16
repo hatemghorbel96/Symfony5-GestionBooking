@@ -4,13 +4,117 @@
 
 {% block body%}
 <section style="padding-top: 50px;">
+  <hr class="mt-4">
+   <main><h1 class="text-center">Inscrivez vous sur notre site !</h1>
     <div class="container">
-        <h1>Inscrivez vous sur notre site !</h1>
 
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button type="submit" class="btn btn-success">Confirmez l inscription</button>
+      <!--Grid <row-->
+         
+      </row-->
+      <div class="row ">
+
+        <!--Grid column-->
+        <div class="col-6">
+
+          <!--Section: Content-->
+         
+
+                                {{form_start(form) }}
+                                    
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <div class="md-form md-outline mt-0">
+                                            {{form_widget(form.firstname) }}
+                                        
+                                        </div>
+                                        </div>
+                                        <div class="col">
+                                        <div class="md-form md-outline mt-0">
+                                            {{form_widget(form.lastName) }}
+                                        
+                                        </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="md-form md-outline mt-0">
+                                        {{form_widget(form.email) }}
+                                    
+                                    </div>
+                                    <div class="md-form md-outline mt-0">
+                                        {{form_widget(form.hash) }}
+                                    
+                                      
+                                    </div>
+                                    <div class="md-form md-outline mt-0">
+                                        {{form_widget(form.passwordConfirm) }}
+                                    
+                                      
+                                    </div>
+                                    <div class="md-form md-outline mt-0">
+                                        {{form_widget(form.picture) }}
+                                    
+                                    </div>
+
+                                    </div>
+
+             <div class="col-6">
+               
+
+               <div class="md-form md-outline mt-0">
+                 {{form_widget(form.introduction) }}
+              
+              </div>
+               <div class="md-form md-outline mt-0">
+                 {{form_widget(form.description) }}
+               
+              </div>
+        
+              <div class="md-form md-outline">
+                 {{form_widget(form.tel) }}
+               
+             
+              </div>
+        
+           
+          
+        
+                    </div>
+
+        
+        
+
+       
+
+        </div>
+             </div>
+       <div class="text-center mb-2">
+        
+              <button type="submit" class="btn btn-primary mb-4">Confirmez l inscription</button>
         {{ form_end(form) }}
+              <p>ou inscrivez-vous avec:</p>
+        
+              <a type="button" class="btn-floating btn-fb btn-sm mr-1">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a type="button" class="btn-floating btn-tw btn-sm mr-1">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a type="button" class="btn-floating btn-li btn-sm mr-1">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a type="button" class="btn-floating btn-git btn-sm">
+                <i class="fab fa-github"></i>
+              </a>
+        
+              <hr class="mt-0">
+       
+            </div>   
+
+      </div>
+      <!--Grid row-->
+
+
     </div>
+  </main>
     </section>
 {% endblock %}

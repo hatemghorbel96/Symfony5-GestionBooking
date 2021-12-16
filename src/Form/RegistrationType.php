@@ -5,7 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -24,9 +24,10 @@ class RegistrationType extends AbstractType
      */
     private function getConfiguration($label,$placeholder,$options = []){
         return array_merge([
+            
             'label'=>$label,
             'attr'=>[
-                'placeholder'=>$placeholder
+                'placeholder'=>$placeholder,'class'=>'form-control',
             ]
         ],$options);
     }
@@ -40,9 +41,21 @@ class RegistrationType extends AbstractType
             ->add('picture',UrlType::class,$this->getConfiguration("photo de profil","URL de votre avatar"))
             ->add('hash',PasswordType::class,$this->getConfiguration("mot de passe","choissisez un mot de passe"))
             ->add('passwordConfirm',PasswordType::class,$this->getConfiguration("confirmation de mot de passe","veuillez confirmez votre mot de passe"))
-
-            ->add('introduction',TextareaType::class,$this->getConfiguration("introduction","presentez vous"))
-            ->add('description',TextareaType::class,$this->getConfiguration("description","cest le moment de vous presenter en details"))
+            ->add('tel',NumberType::class,$this->getConfiguration("Télephone","Votre numero de telephone"))
+            ->add('introduction',TextareaType::class, [
+          
+                'label' => 'Introduction',
+                'attr' => [
+                    'class' => 'form-control', 'rows'=>3,'placeholder'=>'presentez vous'
+                ]
+            ])
+            ->add('description',TextareaType::class, [
+          
+                'label' => 'Description',
+                'attr' => [
+                    'class' => 'form-control', 'rows'=>4,'placeholder'=>'cest le moment de vous presenter en details'
+                ]
+            ])
 
         ;
     }

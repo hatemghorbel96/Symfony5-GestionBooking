@@ -4,37 +4,75 @@
 
 {% block body %}
 <section style="padding-top: 50px;">
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">&nbsp;</div>
+<main>
+    <div class="container">
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center">
+
+        <!--Grid column-->
         <div class="col-md-6">
-            <div class="bg-light py-3 px-3">
-                <h1>Connectez vous !</h1>
-                <form action="{{ path('account_login') }}" method="post">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" name="_username" id="email" class="form-control"
-                        placeholder="Adresse email..." required>
 
-                    </div>
+          <!--Section: Content-->
+          <section class="mb-5">
+ <h1>Connectez vous !</h1>
+           <form action="{{ path('account_login') }}" method="post">
 
-                    <div class="form-group">
-                        <label for="password">Mot de passe</label>
-                        <input type="password" name="_password" id="password" class="form-control"
-                               placeholder="mot de passe..." required>
+              <div class="md-form md-outline">
+                <input type="email" name="_username" id="email" class="form-control"  placeholder="Adresse email..." required>
+                <label data-error="wrong" data-success="right" for="defaultForm-email1">Email</label>
+              </div>
+              <div class="md-form md-outline">
+                <input type="password" name="_password" id="password" class="form-control" placeholder="mot de passe..." required>
+                <label data-error="wrong" data-success="right" for="defaultForm-pass1">Mot de passe</label>
+              </div>
 
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success">Connexion !</button>
-                    </div>
+           
 
-                </form>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+
+              <div class="form-check pl-4 mb-3">
+                <input type="checkbox" class="form-check-input filled-in" name="_remember_me">
+                <label class="form-check-label small text-uppercase card-link-secondary" for="new">Remember me</label>
+              </div>
+
+              <p></p>
 
             </div>
 
+            <div class="text-center pb-2">
+
+              <button type="submit" class="btn btn-primary mb-4">Connexion !</button>
+ </form>
+              <p>Vous n'êtes pas membre ?<a href="{{path('account_register')}}">Inscription</a></p>
+
+              <p>ou inscrivez-vous avec:</p>
+
+              <a type="button" class="btn-floating btn-fb btn-sm mr-1">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a type="button" class="btn-floating btn-tw btn-sm mr-1">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a type="button" class="btn-floating btn-li btn-sm mr-1">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a type="button" class="btn-floating btn-git btn-sm">
+                <i class="fab fa-github"></i>
+              </a>
+
+            </div>
+
+          </section>
+          <!--Section: Content-->
+
         </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
 
 
     </div>
-</div></section><br><br><br><br><br><br><br><br>
+  </main></section></br>
 {% endblock %}
